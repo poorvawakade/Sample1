@@ -30,7 +30,24 @@ INSERT INTO Orders (OrderID, CustomerID, Product) VALUES
 (104, 4, 'Monitor'); 
 
 SELECT * FROM shope.orders;
+
+
+	OrderID	 CustomerID	Product
+	101	       1	    Laptop
+	102	       2	    Mobile
+	104	       4	    Monitor
+	103	       3	    Tablet
+        
+			
 SELECT * FROM shope.customers;
+
+CustomerID	  Name	    City
+1	        Alice	    Mumbai
+2	        Bob	        Pune
+3	        Charlie    	Delhi
+4	        David	    Bangalore
+
+
 
 /*INNER JOIN*/
 
@@ -39,6 +56,13 @@ SELECT Customers.CustomerID, Customers.Name, Customers.City,
 FROM Customers
 INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
 
+CustomerID	Name	    City	    OrderID	    Product
+1	        Alice	    Mumbai	    101	        Laptop
+2	        Bob	        Pune	    102	        Mobile
+3	        Charlie	    Delhi	    103         Tablet
+4	        David	    Bangalore	104	        Monitor
+
+
 /*LEFT JOIN*/
 
 SELECT Customers.CustomerID, Customers.Name, Customers.City, 
@@ -46,12 +70,27 @@ SELECT Customers.CustomerID, Customers.Name, Customers.City,
 FROM Customers
 LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
 
+CustomerID	Name	    City	    OrderID	    Product
+1	        Alice	    Mumbai	    101	        Laptop
+2	        Bob	        Pune	    102	        Mobile
+3	        Charlie	    Delhi	    103	        Tablet
+4	        David	    Bangalore	104         Monitor
+
+
+
 /*RIGHT JOIN*/
 
 SELECT Customers.CustomerID, Customers.Name, Customers.City, 
        Orders.OrderID, Orders.Product
 FROM Customers
 RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+
+CustomerID	Name	    City	    OrderID	    Product
+1	        Alice	    Mumbai	    101	        Laptop
+2	        Bob	        Pune	    102	        Mobile
+3	        Charlie	    Delhi	    103	        Tablet
+4	        David	    Bangalore	104         Monitor
+
 
 /*FULL JOIN (Using UNION)*/
 
@@ -64,4 +103,10 @@ SELECT Customers.CustomerID, Customers.Name, Customers.City,
        Orders.OrderID, Orders.Product
 FROM Customers
 RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+
+CustomerID	Name	    City	    OrderID	    Product
+1	        Alice	    Mumbai	    101	        Laptop
+2	        Bob	        Pune	    102	        Mobile
+3	        Charlie	    Delhi	    103	        Tablet
+4	        David	    Bangalore	104         Monitor
 
